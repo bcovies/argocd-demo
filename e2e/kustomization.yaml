@@ -6,7 +6,7 @@ patchesStrategicMerge:
 - ./deployment-patch.yaml
 
 images:
-- name: alexmt/argocd-demo
-  newTag: a1b2c3d5
+- name: nginx
+  newTag: 1.23
 resources:
 - ../base
