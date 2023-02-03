@@ -15,7 +15,8 @@ spec:
         app: demo
     spec:
       containers:
-      - image: alexmt/argocd-demo:f27903964ba8e31ad89c31379e300a35fe1632a3
+      - image: nginx:1.23.3
+        imagePullPolicy: Never
         name: demo
         ports:
         - containerPort: 8080
