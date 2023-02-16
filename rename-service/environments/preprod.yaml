@@ -1,4 +1,4 @@
 generic:
-  namespace: ev-dev
+  namespace: preprod
 ingress: 
   domain: yahoo.com

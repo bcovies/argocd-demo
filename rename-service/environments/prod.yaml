@@ -1,4 +1,4 @@
 generic:
-  namespace: ev-dev
+  namespace: prod
 ingress: 
   domain: google.com
