@@ -1,0 +1,4 @@
+generic:
+  namespace: bp-dev
+ingress: 
+  domain: bing.com

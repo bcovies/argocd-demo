@@ -1,0 +1,34 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: gf-ifcs-rename-service
+  namespace: argocd
+spec:
+  generators:
+    - list:
+      elements:
+        - cluster: bp-dev
+          url: https://kubernetes.default.svc
+          namespace: bp-dev
+        - cluster: zen-dev
+          url: https://kubernetes.default.svc
+          namespace: zen-dev
+        - cluster: ev-dev
+          url: https://kubernetes.default.svc
+          namespace: ev-dev
+  template:
+    metadata:
+      name: '{{cluster}}-rename-service'
+    spec:
+      project: default
+      source:
+        repoURL: https://github.com/bcovies/argocd-demo # Hosts the manifests files
+        targetRevision: test-argo # Branch 
+        path: rename-service/templates # path to the files
+        helm:
+          valueFiles:
+            - 'environments/{{namespace}}.yaml'
+            - 'common/values.yaml'
+      destination: 
+        server: '{{url}}' # Server which ArgoCD will deploy these manifests 
+        namespace: '{{namespace}}' # Namespace the will be used
