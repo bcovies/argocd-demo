@@ -26,7 +26,8 @@ spec:
         path: rename-service # path to the files
         helm:
           valueFiles:
-            - environments/{{namespace}}.yaml
+            - ../environments/{{namespace}}.yaml
+            - ../common/values.yaml
       # source:
       #   repoURL: https://github.com/infra-team/cluster-deployments.git
       #   targetRevision: HEAD
