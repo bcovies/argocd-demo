@@ -1,34 +1,36 @@
 apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
 metadata:
-  name: gf-ifcs-rename-service
-  namespace: argocd
+  name: guestbook
 spec:
   generators:
-    - list:
+  - list:
       elements:
-        - cluster: bp-dev
-          url: https://kubernetes.default.svc
-          namespace: bp-dev
-        - cluster: zen-dev
-          url: https://kubernetes.default.svc
-          namespace: zen-dev
-        - cluster: ev-dev
-          url: https://kubernetes.default.svc
-          namespace: ev-dev
+      - cluster: dev
+        url: https://kubernetes.default.svc
+        namespace: dev
+      - cluster: prod
+        url: https://kubernetes.default.svc
+        namespace: prod
+      - cluster: preprod
+        url: https://kubernetes.default.svc
+        namespace: preprod
   template:
     metadata:
-      name: '{{cluster}}-rename-service'
+      name: '{{cluster}}-guestbook'
     spec:
       project: default
       source:
-        repoURL: https://github.com/bcovies/argocd-demo # Hosts the manifests files
+        repoURL: https://github.com/bcovies/argocd-demo/ # Hosts the manifests files
         targetRevision: test-argo # Branch 
         path: rename-service/templates # path to the files
         helm:
           valueFiles:
-            - 'environments/{{namespace}}.yaml'
-            - 'common/values.yaml'
-      destination: 
-        server: '{{url}}' # Server which ArgoCD will deploy these manifests 
-        namespace: '{{namespace}}' # Namespace the will be used
+            - environments/{{namespace}}.yaml
+      # source:
+      #   repoURL: https://github.com/infra-team/cluster-deployments.git
+      #   targetRevision: HEAD
+      #   path: guestbook/{{cluster}}
+      destination:
+        server: '{{url}}'
+        namespace: '{{namespace}}'
