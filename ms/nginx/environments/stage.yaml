@@ -1,0 +1,3 @@
+env:
+  name: stage
+  replicas: 2

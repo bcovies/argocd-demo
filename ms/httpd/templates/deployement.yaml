@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: '{{ .Values.env.name }}-my-httpd'
+spec:
+  selector:
+    matchLabels:
+      run: my-httpd
+  replicas: {{ .Values.env.replicas }}
+  template:
+    metadata:
+      labels:
+        run: my-httpd
+    spec:
+      containers:
+      - name: my-httpd
+        image: httpd
+        ports:
+        - containerPort: {{ .Values.common.port }}

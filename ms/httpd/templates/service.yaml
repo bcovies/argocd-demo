@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: my-httpd
+  labels:
+    run: my-httpd
+spec:
+  ports:
+  - port: {{ .Values.common.port }}
+    protocol: TCP
+  selector:
+    run: my-httpd
