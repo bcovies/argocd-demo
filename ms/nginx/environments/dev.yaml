@@ -1,3 +1,0 @@
-env:
-  name: dev
-  replicas: 1
