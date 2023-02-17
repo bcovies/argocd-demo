@@ -1,4 +1,0 @@
-generic:
-  namespace: preprod
-ingress: 
-  domain: yahoo.com

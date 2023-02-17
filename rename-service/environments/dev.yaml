@@ -1,4 +1,3 @@
-generic:
-  namespace: dev
-ingress: 
-  domain: bing.com
+env:
+  name: dev
+  replicas: 1

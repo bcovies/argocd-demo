@@ -1,17 +1,2 @@
-generic:
-  artifactId: ifcs-ms-rename-service
-
-statefulset:
-  replicas: 2
-  containerImage: xoriant-docker.eu-central-1.artifactory.wexapps.com/com.wexinc.gf.ifcs.ms.spring/ifcs-ms-rename-service
-  containerImageTag: 1.74
-  containerCpuLimit: 2
-  containerCpuRequest: 1
-  containerMemLimit: 4Gi
-  containerMemRequest: 4Gi
-
-service:
-  targetPort: 9195
-
-ingress: 
-  contextPath: /rename
+common:
+  port: 80

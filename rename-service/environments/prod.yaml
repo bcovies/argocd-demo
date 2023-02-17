@@ -1,4 +1,3 @@
-generic:
-  namespace: prod
-ingress: 
-  domain: google.com
+env:
+  name: prod
+  replicas: 3

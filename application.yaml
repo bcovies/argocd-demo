@@ -6,15 +6,18 @@ spec:
   generators:
   - list:
       elements:
-      - cluster: dev
-        url: https://kubernetes.default.svc
-        namespace: dev
-      - cluster: prod
-        url: https://kubernetes.default.svc
-        namespace: prod
-      - cluster: preprod
-        url: https://kubernetes.default.svc
-        namespace: preprod
+        - cluster: dev
+          url: https://kubernetes.default.svc
+          namespace: dev
+
+        - cluster: stage
+          url: https://kubernetes.default.svc
+          namespace: stage
+
+        - cluster: prod
+          url: https://kubernetes.default.svc
+          namespace: prod
+
   template:
     metadata:
       name: '{{cluster}}-guestbook'
