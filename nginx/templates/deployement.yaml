@@ -16,4 +16,4 @@ spec:
       - name: my-nginx
         image: nginx
         ports:
-        - containerPort: '{{ .Values.common.port }}'
+        - containerPort: {{ .Values.common.port }}
