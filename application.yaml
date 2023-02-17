@@ -26,7 +26,7 @@ spec:
       source:
         repoURL: https://github.com/bcovies/argocd-demo/ # Hosts the manifests files
         targetRevision: test-argo # Branch 
-        path: rename-service # path to the files
+        path: nginx # path to the files
         helm:
           valueFiles:
             - environments/{{namespace}}.yaml
