@@ -27,8 +27,6 @@ spec:
     spec:
       project: default
       source:
-        directory:
-          recuser: true
         repoURL: '{{ githubUrl }}' # Hosts the manifests files
         targetRevision: test-argo # Branch 
         path: ms # path to the files
